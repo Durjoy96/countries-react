@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-const Country = ({ data, handler }) => {
+const Country = ({ data, handler, showBtn }) => {
   const { name, flags } = data;
 
   const visitedHandler = (event) => {
@@ -24,7 +24,9 @@ const Country = ({ data, handler }) => {
       <div className="mt-6">
         <p className="text-xl text-gray-950 font-semibold">{name.common}</p>
         <div className="mt-4">
-          <Button text="visited?" handler={visitedHandler}></Button>
+          {showBtn && (
+            <Button text="visited?" handler={visitedHandler}></Button>
+          )}
         </div>
       </div>
     </div>

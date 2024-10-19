@@ -23,15 +23,18 @@ const Countries = () => {
         <span className="text-gray-500 font-semibold"> Countries:</span>{" "}
         {countries.length}
       </h1>
-      <div>
+      {visitedCountries.length ? (
         <Visited data={visitedCountries}></Visited>
-      </div>
+      ) : (
+        ""
+      )}
       <div className="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2 lg:grid-cols-4">
         {countries.map((data) => (
           <Country
             key={data.cca2}
             data={data}
             handler={visitedCountriesHandler}
+            showBtn={true}
           ></Country>
         ))}
       </div>

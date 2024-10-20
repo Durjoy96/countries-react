@@ -1,9 +1,9 @@
-import Countries from "./components/Countries";
+import ToggleButtons from "./components/ToggleButtons";
 
 export default function App() {
   return (
     <>
-      <Countries></Countries>
+      <ToggleButtons></ToggleButtons>
     </>
   );
 }

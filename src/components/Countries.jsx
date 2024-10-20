@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import Country from "./Country.jsx";
 import Visited from "./Visited.jsx";
-import ToggleButtons from "./ToggleButtons.jsx";
+import All from "./All.jsx";
 
-const Countries = () => {
+const Countries = ({ activeBtn }) => {
   const [countries, setCountries] = useState([]);
   const [visitedCountries, setVisitedCountries] = useState([]);
 
@@ -20,27 +19,15 @@ const Countries = () => {
 
   return (
     <div>
-      <ToggleButtons></ToggleButtons>
-      
-      <h1 className="text-3xl text-gray-700 font-bold">
-        <span className="text-gray-500 font-semibold"> Countries:</span>{" "}
-        {countries.length}
-      </h1>
-      {visitedCountries.length ? (
-        <Visited data={visitedCountries}></Visited>
+      {activeBtn === "all" ? (
+        <>
+        <All data={countries} handler={visitedCountriesHandler} isDisplay={true}></All> <Visited data={visitedCountries} isDisplay={false}></Visited>
+        </>
       ) : (
-        ""
+        <>
+        <All data={countries} handler={visitedCountriesHandler} isDisplay={false}></All> <Visited data={visitedCountries} isDisplay={true}></Visited>
+        </>
       )}
-      <div className="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2 lg:grid-cols-4">
-        {countries.map((data) => (
-          <Country
-            key={data.cca2}
-            data={data}
-            handler={visitedCountriesHandler}
-            showBtn={true}
-          ></Country>
-        ))}
-      </div>
     </div>
   );
 };

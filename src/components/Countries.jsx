@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Country from "./Country.jsx";
 import Visited from "./Visited.jsx";
+import ToggleButtons from "./ToggleButtons.jsx";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -19,6 +20,8 @@ const Countries = () => {
 
   return (
     <div>
+      <ToggleButtons></ToggleButtons>
+      
       <h1 className="text-3xl text-gray-700 font-bold">
         <span className="text-gray-500 font-semibold"> Countries:</span>{" "}
         {countries.length}
